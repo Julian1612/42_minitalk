@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 11:22:21 by jschneid          #+#    #+#              #
-#    Updated: 2022/08/17 15:24:36 by jschneid         ###   ########.fr        #
+#    Updated: 2022/10/04 13:56:53 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,26 +33,30 @@ OBJB = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	@echo "\033[34mCompiling libft...\033[0m"
 	@ar r $(NAME) $(OBJ)
-	@echo "make done"
+	@echo "\033[33mArchive created"
+	@echo "\033[32m\033[1m\033[4m--LIBFT SUCCESSFULLY COMPILED--\033[0m"
 
 $(OBJ): $(MANDATORY)
 	@cc $(FLASG) -c $(MANDATORY)
 
 clean:
 	@/bin/rm -f $(OBJ) $(OBJB)
-	@echo "make clean done"
+	@echo "\033[33mAll objectfile deleted"
+	@echo "\033[32m\033[1mMake clean done\033[0m"
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo "make fclean done"
+	@echo "\033[33mArchive deleted"
+	@echo "\033[32m\033[1mMake fclean done\033[0m"
 
 re: fclean all
-	@echo "make re done"
+	@echo "\033[32m\033[1mMake re done\033[0m"
 
 bonus: $(OBJ) $(OBJB)
 	@ar r $(NAME) $(OBJ) $(OBJB)
-	@echo "make bonus done"
+	@echo "\033[32m\033[1mMake bonus done\033[0m"
 
 $(OBJB): $(BONUS)
 	@cc $(FLASG) -c $(BONUS)
