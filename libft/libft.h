@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 16:07:05 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 19:19:45 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/08/17 15:22:44 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <fcntl.h>
-# include <limits.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif
@@ -27,7 +26,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-long			ft_atoi(const char *nptr);
+int				ft_atoi(const char *nptr);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
 int				ft_isalnum(int i);
@@ -46,7 +45,6 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char const *s, char c);
-void			ft_free(char **array, int j);
 char			*ft_strchr(const char *string, int value);
 char			*ft_strdup(const char *s1);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -74,7 +72,6 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
-int				ft_strcmp(const char *s1, const char *s2);
 
 ///////////////////////////////// get_next_line ////////////////////////////////
 

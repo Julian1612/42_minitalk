@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jschneid <jschneid@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 08:42:33 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/15 15:28:52 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/04/13 08:42:40 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *nptr);
+int	ft_atoi(const char *nptr);
 
-long	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	long	sign;
 	long	num;

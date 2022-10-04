@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:16:14 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/02 17:26:42 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/04 10:28:05 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 int main(void)
 {
+	while (1)
+	{
+		printf("%d\n", getpid());
+		sleep(5);
+	}
 
+	return (0);
 }

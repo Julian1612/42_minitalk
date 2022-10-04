@@ -5,14 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 17:13:53 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/02 17:26:30 by jschneid         ###   ########.fr       */
+/*   Created: 2022/10/04 10:16:06 by jschneid          #+#    #+#             */
+/*   Updated: 2022/10/04 10:19:23 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "server.h"
+# include "server.h"
 
-int	main(void)
+int main()
 {
+	int	pid;
 
+	pid = (int) getpid();
+	ft_putstr_fd("The PID is: ", 1);
+	ft_putnbr_fd(pid, 1);
+	ft_putchar_fd('\0', 1);
 }
