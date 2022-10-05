@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/02 17:23:51 by jschneid          #+#    #+#              #
-#    Updated: 2022/10/04 13:57:18 by jschneid         ###   ########.fr        #
+#    Updated: 2022/10/05 17:55:21 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,10 @@ OBJ_CLIENT = $(SRC_CLIENT:.c=.o)
 all: lib $(SERVER) $(CLIENT)
 
 %.o: %.c
+	@echo "\033[1;32mCompiling  \033[1;97m$< \033[1;0m"
 	@$(CC) $(FLAGS) -c $< -o $@
 
 $(SERVER): $(OBJ_SERVER)
-	@echo "\033[34mCompiling minitalk...\033[0m"
 	@cp ./libft/libft.a ./
 	@echo "\033[33mArchive copied"
 	@$(CC) $(FLAGS) $(OBJ_SERVER) -L./libft -lft -o $(SERVER)
@@ -67,7 +67,7 @@ fclean: clean
 re: fclean all
 	@echo "\033[32m\033[1mMake re done\033[0m"
 
-.PHONY:	all bonus clean fclean re
+.PHONY:	all bonus clean fclean re lib
 
 # text modifiers #
 RED =				"\e[31m"

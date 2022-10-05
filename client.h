@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:16:39 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/04 17:48:31 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/04 20:34:56 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdio.h>
 //////////////////////////
 
-void	send_message(char *message);
+void	send_message(char *message, int pid);
+void	send_bits(char c, int pid);
 
 #endif

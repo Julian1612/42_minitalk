@@ -6,12 +6,14 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:16:06 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/04 18:05:48 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/05 20:40:59 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "server.h"
-//Send X in Ascii
+
+int	i = 7;
+
 void test(int f)
 {
 	int		i;
@@ -38,19 +40,40 @@ void test(int f)
 	ft_printf("%c\n", c);
 }
 
+static void print_message(int signal, siginfo_t *info, void *context)
+{
+	static int	bit;
+	static char	c;
+
+	(void)info;
+	(void)context;
+	if (signal == SIGUSR1)
+		bit = 0x0;
+	if (signal == SIGUSR2)
+		bit = 0x1;
+	c |= bit << i;
+	i--;
+	if (i == -1)
+	{
+		write(1, &c, 1);
+		i = 7;
+		c = 0x0;
+	}
+
+}
+
 int main()
 {
 	int	pid;
+	struct sigaction	s_sigaction;
 
-	int i = 0;
-	i++;
 	pid = (int) getpid();
-	ft_putstr_fd("Server PID: ", 1);
-	ft_putnbr_fd(pid, 1);
-	ft_putchar_fd('\n', 1);
-	signal(SIGUSR2, &test);
+	ft_printf("Server PID: %d\n", pid);
+	s_sigaction.sa_sigaction = print_message;
+	s_sigaction.sa_flags = SA_SIGINFO;
+	sigaction(SIGUSR1, &s_sigaction, NULL);
+	sigaction(SIGUSR2, &s_sigaction, NULL);
 	while (1)
-	{
-		usleep(1);
-	}
+		pause();
+	return (0);
 }
