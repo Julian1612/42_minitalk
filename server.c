@@ -6,39 +6,13 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:16:06 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/05 20:40:59 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/05 21:31:02 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "server.h"
 
 int	i = 7;
-
-void test(int f)
-{
-	int		i;
-	char	c;
-
-	c = 0;
-	i = 0;
-	c |= 0x0 << i;
-	i++;
-	c |= 0x0 << i;
-	i++;
-	c |= 0x0 << i;
-	i++;
-	c |= 0x1 << i;
-	i++;
-	c |= 0x1 << i;
-	i++;
-	c |= 0x0 << i;
-	i++;
-	c |= 0x1 << i;
-	i++;
-	c |= 0x0 << i;
-	(void) f;
-	ft_printf("%c\n", c);
-}
 
 static void print_message(int signal, siginfo_t *info, void *context)
 {

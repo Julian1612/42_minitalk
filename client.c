@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:16:14 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/05 13:11:36 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/05 21:31:04 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	send_message(char *message, int pid)
 		send_bits(message[i], pid);
 		i++;
 	}
+	send_bits(0, pid);
 }
 
 void	send_bits(char c, int pid)
@@ -52,16 +53,9 @@ void	send_bits(char c, int pid)
 	{
 		usleep(100);
 		if (((c >> i) & 0x1) == 0)
-		{
 			kill(pid, SIGUSR1);
-			printf("0");
-		}
 		else
-		{
 			kill(pid, SIGUSR2);
-			printf("1");
-		}
 		i--;
 	}
-	printf("\n");
 }
