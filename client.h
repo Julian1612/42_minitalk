@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:16:39 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/06 10:45:46 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/06 14:41:47 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # include <limits.h>
 # include <signal.h>
 # include "./libft/libft.h"
-//////////////////////////
-# include <stdio.h>
-//////////////////////////
 
 void	send_message(char *message, int pid);
 void	send_bits(char c, int pid);

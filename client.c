@@ -6,15 +6,15 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:16:14 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/06 11:45:53 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/06 14:39:49 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int	pid;
+	int					pid;
 	struct sigaction	s_sigaction;
 
 	if (argc < 3)
@@ -37,12 +37,12 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-void received_confirmation(int signal, siginfo_t *info, void *context)
+void	received_confirmation(int signal, siginfo_t *info, void *context)
 {
 	(void) signal;
 	(void) info;
 	(void) context;
-	printf("Message has been received!\n");
+	ft_printf("Message has been received!\n");
 	exit(0);
 }
 
