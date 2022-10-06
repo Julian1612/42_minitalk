@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:16:06 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/05 21:31:02 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:41:33 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static void print_message(int signal, siginfo_t *info, void *context)
 	i--;
 	if (i == -1)
 	{
+		if (c == '\0')
+			kill(info->si_pid, SIGUSR1);
 		write(1, &c, 1);
 		i = 7;
 		c = 0x0;

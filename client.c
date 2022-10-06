@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:16:14 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/05 21:31:04 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:45:53 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(int argc, char **argv)
 {
 	int	pid;
+	struct sigaction	s_sigaction;
 
 	if (argc < 3)
 	{
@@ -26,9 +27,23 @@ int main(int argc, char **argv)
 		ft_printf("ERROR: Too many arguments\n");
 		return (1);
 	}
+	s_sigaction.sa_sigaction = received_confirmation;
+	s_sigaction.sa_flags = SA_SIGINFO;
 	pid = ft_atoi(argv[1]);
+	sigaction(SIGUSR1, &s_sigaction, NULL);
 	send_message(argv[2], pid);
+	while (1)
+		usleep(1);
 	return (0);
+}
+
+void received_confirmation(int signal, siginfo_t *info, void *context)
+{
+	(void) signal;
+	(void) info;
+	(void) context;
+	printf("Message has been received!\n");
+	exit(0);
 }
 
 void	send_message(char *message, int pid)
@@ -41,7 +56,7 @@ void	send_message(char *message, int pid)
 		send_bits(message[i], pid);
 		i++;
 	}
-	send_bits(0, pid);
+	send_bits('\0', pid);
 }
 
 void	send_bits(char c, int pid)
